@@ -1,66 +1,51 @@
-\# MongoDB Implementation – SFILS Assignment 2
+# MongoDB – SFILS Assignment 2
 
+**Note:**  
+This folder contains both the *original starter MongoDB files* from the SFILS template and the *new MongoDB application files* I created for Assignment 2.  
+All of my Assignment 2 implementation files are clearly labeled with the prefix:
 
+- `mongo_*.py` (e.g., `mongo_main.py`, `mongo_add_user.py`, etc.)
 
-This folder contains the MongoDB-based version of the SFILS library application.  
+These are the files that connect to MongoDB, insert documents, query collections, and demonstrate CRUD operations for the assignment.
 
-It is a port of the MySQL-based app to use MongoDB instead, while keeping the same basic operations:
-
-\- Add users
-
-\- Add books
-
-\- Record borrows
-
-\- List books
-
-\- Search for books
-
-
-
-The MongoDB database used for this assignment is:
-
-
-
-\- Database: `sfils\_db`
-
-\- Collections:
-
-&nbsp; - `books`
-
-&nbsp; - `users`
-
-&nbsp; - `borrow\_records`
-
-
+The original placeholder files from the starter repo were kept so the project structure remains intact.
 
 ---
 
+## Overview
 
+This folder contains the MongoDB-based version of the SFILS library application.  
+It is a port of the MySQL-based application from Assignment 1, but rewritten to use MongoDB instead.
 
-\## Prerequisites
+The MongoDB version supports:
 
+- Adding users  
+- Adding books  
+- Borrowing books  
+- Listing books  
+- Searching books  
 
+The MongoDB database used for this assignment is:
+
+- **Database:** `sfils_db`  
+- **Collections:** `books`, `users`, `borrow_records`
+
+---
+
+## Prerequisites
 
 To run this version of the application, you need:
 
-
-
-\- MongoDB Community Server installed and running on the local machine
-
-&nbsp; - The app assumes MongoDB is available at `mongodb://localhost:27017`
-
-\- MongoDB Compass (optional, for inspecting data)
-
-\- Python 3 installed
-
-\- The `pymongo` library installed:
-
-
+- MongoDB Community Server installed and running  
+  - The app assumes MongoDB is available at:  
+    `mongodb://localhost:27017`
+- MongoDB Compass (optional, for viewing documents)
+- Python 3 installed
+- The `pymongo` library:
 
 ```bash
-
 python -m pip install pymongo
+
 
 
 
@@ -77,10 +62,7 @@ On Windows, MongoDB is typically installed as a service and runs automatically.
 If needed, it can be started manually with a command like:
 
 
-
 mongod --dbpath C:\\data\\db
-
-
 
 
 
