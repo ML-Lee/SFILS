@@ -18,6 +18,48 @@ The app is intended to be run from the command line and uses Python to connect t
 
 
 
+\## Database Configuration
+
+
+
+The app connects to a MySQL database. You need to have MySQL running with the following credentials (mine):
+
+
+
+\- \*\*User\*\*: `root`  
+
+\- \*\*Password\*\*: `Sunstarblast101`  
+
+\- \*\*Database\*\*: `sfils\_db`
+
+
+
+These credentials are used in the Python scripts (such as `main.py`, `add\_user.py`, `add\_book.py`, etc.). If you’re using different credentials or a different MySQL setup, \*\*make sure to change the connection settings in the Python files\*\*.
+
+
+
+For example, in `main.py`, the database connection looks like this:
+
+
+
+```python
+
+conn = mysql.connector.connect(
+
+&nbsp;   host="localhost",           # Change if using a remote host
+
+&nbsp;   user="sfils\_user",          # Change if your MySQL user is different
+
+&nbsp;   password="sfils\_pass",      # Change if your password is different
+
+&nbsp;   database="sfils\_db"         # Change if your database name is different
+
+)
+
+
+
+\\
+
 Before running the application, make sure you have:
 
 
@@ -189,6 +231,10 @@ README.md
 
 
 This documentation file, explaining how to run and understand the application.
+
+
+
+
 
 
 
