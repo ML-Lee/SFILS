@@ -46,7 +46,6 @@ This script does **not** load the SFPL dataset.
 Loads the SFPL dataset from a CSV file into the table:
 
 
-
 sfpl_datasf_library_usage_jan_2023
 
 
