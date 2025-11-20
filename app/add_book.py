@@ -1,26 +1,43 @@
 import mysql.connector
 
-# Get book details from user
-title = input("Enter book title: ")
-author = input("Enter author name: ")
-genre = input("Enter genre: ")
-year = input("Enter publication year: ")
+def add_book():
+    print("\n--- Add New Book ---")
 
-# Connect to MySQL
-conn = mysql.connector.connect(
-    host="localhost",
-    user="sfils_user",
-    password="sfils_pass",
-    database="sfils_db"
-)
+    title = input("Enter book title: ").strip()
+    author = input("Enter author name: ").strip()
+    genre = input("Enter genre: ").strip()
+    year = input("Enter publication year: ").strip()
 
-cursor = conn.cursor()
+    # Basic validation
+    if not title or not author:
+        print("Title and author cannot be empty.")
+        return
 
-# Insert book into database
-query = "INSERT INTO books (title, author, genre, year) VALUES (%s, %s, %s, %s)"
-cursor.execute(query, (title, author, genre, year))
-conn.commit()
+    if not year.isdigit():
+        print("Publication year must be a number.")
+        return
 
-print("✅ Book added successfully!")
+    try:
+        conn = mysql.connector.connect(
+            host="localhost",
+            user="sfils_user",
+            password="sfils_pass",
+            database="sfils_db"
+        )
 
-conn.close()
+        cursor = conn.cursor()
+        query = """
+            INSERT INTO books (title, author, genre, year)
+            VALUES (%s, %s, %s, %s)
+        """
+        cursor.execute(query, (title, author, genre, year))
+        conn.commit()
+
+        print(f"Book '{title}' by {author} added successfully!")
+
+    except mysql.connector.Error as err:
+        print("Error adding book:", err)
+
+    finally:
+        if conn.is_connected():
+            conn.close()
